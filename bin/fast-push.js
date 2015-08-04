@@ -9,6 +9,7 @@ function fastPush(commitMessage) {
       throwErr('You don\'t have git installed');
     } else {
       exec('git rev-parse --abbrev-ref HEAD', function(err, currentBranch) {
+        currentBranch = currentBranch.trim();
         if(err) {
           throwErr('Can\'t get your current branch. Are you sure this is a git repository?');
         } else {
@@ -24,7 +25,7 @@ function fastPush(commitMessage) {
                     if(pushErr) {
                       throwErr(pushErr);
                     } else {
-                      console.log('Pushed!');
+                      console.log('"[' + currentBranch + ']' + commitMessage + '"\nPushed!');
                     }
                   });
                 }
