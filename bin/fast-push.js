@@ -17,7 +17,7 @@ function fastPush(commitMessage) {
             if(addErr) {
               throwErr(addErr);
             } else {
-              exec('git commit -m "[' + currentBranch + ']' + commitMessage + '"', function(commitErr) {
+              exec('git commit -m "' + commitMessage + '"', function(commitErr) {
                 if(commitErr) {
                   throwErr(commitErr);
                 } else {
@@ -25,7 +25,7 @@ function fastPush(commitMessage) {
                     if(pushErr) {
                       throwErr(pushErr);
                     } else {
-                      console.log('"[' + currentBranch + ']' + commitMessage + '"\nPushed!');
+                      console.log('"' + commitMessage + '"\nPushed!');
                     }
                   });
                 }
