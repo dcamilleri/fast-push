@@ -1,11 +1,11 @@
 # fast-push
-Git add commit and push your files with `fpush` command
+Git add commit and push your files with one command
 
-Tired of always have to `git add`, `git commit` and `git push`? Be lazy and super fast with `fpush` command, which does everything for you. 
-
-## Install
+Tired of always have to `git add`, `git commit` and `git push`? Be lazy and super fast with `fpush` command, which does everything for you.
 
 [![NPM](https://nodei.co/npm/fast-push.png)](https://www.npmjs.com/package/fast-push)
+
+## Install
 
 ```
 $ npm install -g fast-push
