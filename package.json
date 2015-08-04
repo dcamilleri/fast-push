@@ -1,0 +1,32 @@
+{
+  "name": "fast-push",
+  "version": "1.0.0",
+  "description": "Git add commit and push your files with one command",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dcamilleri/fast-push"
+  },
+  "keywords": [
+    "commit",
+    "push",
+    "git",
+    "lazy"
+  ],
+  "author": "Dorian Camilleri",
+  "license": "MIT",
+  "preferGlobal": true,
+  "bin": {
+    "fpush": "index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/dcamilleri/fast-push/issues"
+  },
+  "homepage": "https://github.com/dcamilleri/fast-push",
+  "devDependencies": {
+    "mocha": "^2.2.5"
+  }
+}
