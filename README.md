@@ -1,7 +1,7 @@
 # fast-push
 Git add commit and push your files with `fpush` command
 
-Tired of always have to `git add`, `git commit` and `git push`? Be lazy and super fast with `fpush` command, which does everything for you.
+Tired of always have to `git add`, `git commit` and `git push`? Be lazy and super fast with `fpush` command, which does everything for you. 
 
 ## Install
 
@@ -27,12 +27,11 @@ Instead of:
 
 ## Output
 
-All your files get added, committed and pushed on your current branch.
+All your files are added, committed and pushed on your current branch.
 
-``` bash
-  $ [develop] "Super fast commit!"
-  $ Pushed!
-```
+## Note
+
+In order to be more effective, `fast-push` works with no external dependecies.
 
 ## License
 
