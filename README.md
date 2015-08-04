@@ -31,7 +31,7 @@ All your files are added, committed and pushed on your current branch.
 
 ## Note
 
-In order to be more effective, `fast-push` works with no external dependecies.
+In order to be more effective, `fast-push` works with no external dependencies.
 
 ## License
 
