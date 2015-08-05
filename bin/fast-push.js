@@ -3,6 +3,7 @@
 var exec = require('child_process').exec;
 var throwErr = require('../utils/throw-err');
 
+console.time('NO Promise');
 function fastPush(commitMessage) {
   exec('git --version', function(error) {
     if(error) {
@@ -25,6 +26,7 @@ function fastPush(commitMessage) {
                     if(pushErr) {
                       throwErr(pushErr);
                     } else {
+                      console.timeEnd('NO Promise');
                       console.log('"' + commitMessage + '"\nPushed!');
                     }
                   });
