@@ -3,8 +3,6 @@
 var execPromise = require('../utils/exec-promise');
 var errorLogs = require('../utils/errors');
 
-console.log('Without getting branch----------');
-
 function fastPush(commitMessage) {
   execPromise('git --version', errorLogs.gitNotInstalled)
     .then(function() {
