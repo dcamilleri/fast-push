@@ -1,41 +1,27 @@
 'use strict';
 
-var exec = require('child_process').exec;
-var throwErr = require('../utils/throw-err');
+var execPromise = require('../utils/exec-promise');
+var errorLogs = require('../utils/errors');
+var currentBranch;
 
 function fastPush(commitMessage) {
-  exec('git --version', function(error) {
-    if(error) {
-      throwErr('You don\'t have git installed');
-    } else {
-      exec('git rev-parse --abbrev-ref HEAD', function(err, currentBranch) {
-        currentBranch = currentBranch.trim();
-        if(err) {
-          throwErr('Can\'t get your current branch. Are you sure this is a git repository?');
-        } else {
-          exec('git add --all', function(addErr) {
-            if(addErr) {
-              throwErr(addErr);
-            } else {
-              exec('git commit -m "' + commitMessage + '"', function(commitErr) {
-                if(commitErr) {
-                  throwErr(commitErr);
-                } else {
-                  exec('git push origin ' + currentBranch, function(pushErr) {
-                    if(pushErr) {
-                      throwErr(pushErr);
-                    } else {
-                      console.log('"' + commitMessage + '"\nPushed!');
-                    }
-                  });
-                }
-              });
-            }
-          });
-        }
-      });
-    }
-  });
+  execPromise('git --version', errorLogs.gitNotInstalled)
+    .then(function() {
+      return execPromise('git rev-parse --abbrev-ref HEAD', errorLogs.branchNotFound);
+    })
+    .then(function(branch) {
+      currentBranch = branch;
+      return execPromise('git add --all', errorLogs.addError);
+    })
+    .then(function() {
+      return execPromise('git commit -m "' + commitMessage + '"', errorLogs.commitError);
+    })
+    .then(function() {
+      return execPromise('git push origin ' + currentBranch, errorLogs.commitError);
+    })
+    .then(function() {
+      console.log('"' + commitMessage + '"\nPushed!');
+    });
 }
 
 module.exports = fastPush;
