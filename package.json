@@ -1,6 +1,6 @@
 {
   "name": "fast-push",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Git add commit and push your files with one command",
   "main": "index.js",
   "scripts": {
